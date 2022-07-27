@@ -58,4 +58,10 @@ android {
         minSdk = 21
         targetSdk = 32
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
+    }
 }
