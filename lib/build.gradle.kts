@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+val compose_ui_version: String by project
+
 android {
     namespace = "com.example.lib"
     compileSdk = 32
@@ -31,10 +33,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
+    }
 }
 
 dependencies {
-
+    implementation("androidx.compose.runtime:runtime:$compose_ui_version")
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("com.google.android.material:material:1.6.1")
