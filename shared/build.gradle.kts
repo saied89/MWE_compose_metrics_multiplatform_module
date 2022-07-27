@@ -5,6 +5,7 @@ plugins {
 }
 
 version = "1.0"
+val compose_ui_version: String by project
 
 kotlin {
     android()
@@ -28,7 +29,11 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("androidx.compose.runtime:runtime:$compose_ui_version")
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
