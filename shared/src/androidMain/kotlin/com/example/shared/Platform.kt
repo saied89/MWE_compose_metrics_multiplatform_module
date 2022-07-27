@@ -6,5 +6,5 @@ actual class Platform actual constructor() {
 
 data class SharedGreetingName(val name: String)
 
-fun getGreetingName() = SharedGreetingName("From Shared Module")
+fun getSharedGreetingName() = SharedGreetingName("From Shared Module")
 
