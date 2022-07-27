@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mwe_compose_metrics_multiplatform_module.ui.theme.MWE_compose_metrics_multiplatform_moduleTheme
+import com.example.shared.GreetingName
+import com.example.shared.getGreetingName
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting(getGreetingName())
                 }
             }
         }
@@ -30,14 +32,6 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MWE_compose_metrics_multiplatform_moduleTheme {
-        Greeting("Android")
-    }
+fun Greeting(greetingName: GreetingName) {
+    Text(text = "Hello ${greetingName.name}!")
 }
